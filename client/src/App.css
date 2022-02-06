@@ -1,3 +1,9 @@
+:root{
+  --yellow: #ffcd00;
+  --black: #000000;
+  --gray: #141418;
+}
+
 .App {
   width: 100%;
   height: auto;
@@ -9,67 +15,55 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #000;
+  color: #fff;
 }
 
 .post {
-  width: 400px;
-  height: 300px;
+  padding-top: 10px;
+  width:100vw;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  border: 1px solid lightgray;
-  font-family: Arial, Helvetica, sans-serif;
-
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.post .postheader .usernick a{
+  color: #ffcd00;
+}
+
 .post:hover {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: var(--gray);
   cursor: pointer;
 }
 .post .title {
-  flex: 20%;
   border-bottom: 1px solid lightgray;
-  background-color: dodgerblue;
-  display: grid;
-  place-content: center;
   color: white;
 }
 
 .post .body {
-  flex: 60%;
-  display: grid;
-  place-content: center;
+  margin: 2%;
 }
 
 .post .footer {
-  flex: 20%;
-  border-top: 1px solid lightgray;
-  display: flex;
-  align-items: center;
+  border-bottom: 1px solid lightgray;
   padding-left: 15px;
-  background-color: dodgerblue;
   color: white;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
 
-.footer .username {
-  flex: 50%;
 }
 .footer .buttons {
   flex: 50%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  margin-left: 2%;
+  margin-bottom: 10px;
 }
-
 .likeBttn {
   color: rgba(250, 250, 250, 0.8);
 }
 .unlikeBttn {
-  color: white;
+  color: var(--yellow);
 }
 
 .buttons label {
@@ -91,10 +85,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
+  width: 100vw;
   height: auto;
-  padding: 20px;
-  border: 5px solid dodgerblue;
+  padding: 0 10vw;
+  margin-top: 5%;
+  border-bottom: 1px solid var(--yellow);
   border-radius: 5px;
 }
 
@@ -112,14 +107,17 @@ body {
   margin-top: 15px;
   height: 40px;
   border: none;
-  background-color: lightskyblue;
+  align-self: flex-end;
+  background-color: var(--yellow);
+  color: #000;
   border-radius: 5px;
-  color: white;
+  font-weight: bold;
+
 }
 
 .formContainer button:hover {
   cursor: pointer;
-  background-color: dodgerblue;
+  background-color: #c79f00;
 }
 
 span {
@@ -131,16 +129,24 @@ span {
 .navbar {
   width: 100%;
   height: 70px;
-  background-color: dodgerblue;
+  background-color: var(--yellow);
   display: flex;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
+  
 }
 .navbar .links {
   flex: 50%;
   height: 100%;
   display: flex;
   align-items: center;
+}
+.navbar .links a{
+  transition: all 1s;
+  font-weight: bold;
+}
+.navbar .links a:hover{
+  transform: scale(1.1);
+  text-shadow: rgba(0, 0, 0, 0.233) 2px 2px 4px;
 }
 
 .navbar .loggedInContainer {
@@ -161,14 +167,23 @@ a {
   height: 40px;
   cursor: pointer;
   margin-right: 10px;
-  background-color: white;
+  background-color: var(--gray);
+  color: #ffcd00;
+  box-shadow: 3px 4px 5px black;
+  transition: all 1s;
+  text-transform: capitalize;
+}
+.navbar button:hover{
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.26);
+  transform: scale(1.1);
 }
 
 .navbar h1 {
   text-align: right;
   margin-right: 10px;
   color: white;
-  font-weight: lighter;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 /* INDIVIDUAL POST */

@@ -48,7 +48,7 @@ function CreatePost() {
             autocomplete="off"
             id="inputCreatePost"
             name="title"
-            placeholder="(Ex. Title...)"
+            placeholder="Your title..."
           />
           <label>Post: </label>
           <ErrorMessage name="postText" component="span" />
@@ -56,7 +56,7 @@ function CreatePost() {
             autocomplete="off"
             id="inputCreatePost"
             name="postText"
-            placeholder="(Ex. Post...)"
+            placeholder="Your post..."
           />
 
           <button type="submit"> Create Post</button>

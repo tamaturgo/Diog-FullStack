@@ -71,7 +71,10 @@ function Home() {
       {listOfPosts.map((value, key) => {
         return (
           <div key={key} className="post">
-            <div className="title"> {value.title} </div>
+            <div className="postheader">
+              <span className="usernick"><Link to={`/profile/${value.UserId}`}> @ {value.username}   -    </Link></span>
+              <span className="title">{value.title}</span>
+            </div>
             <div
               className="body"
               onClick={() => {
@@ -81,9 +84,6 @@ function Home() {
               {value.postText}
             </div>
             <div className="footer">
-              <div className="username">
-                <Link to={`/profile/${value.UserId}`}> {value.username} </Link>
-              </div>
               <div className="buttons">
                 <ThumbUpAltIcon
                   onClick={() => {
