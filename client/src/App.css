@@ -4,24 +4,29 @@
   --gray: #141418;
 }
 
+*{
+  box-sizing: border-box;
+}
 .App {
   width: 100%;
   height: auto;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
+  
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 .post {
   padding-top: 10px;
-  width:100vw;
+  width:80vw;
+  margin-left: 5vw;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -30,15 +35,18 @@ body {
 
 .post .postheader .usernick a{
   color: #ffcd00;
+  margin-left: 2%;
 }
 
 .post:hover {
-  background-color: var(--gray);
+  background-color: #f0f0f5;
   cursor: pointer;
 }
 .post .title {
   border-bottom: 1px solid lightgray;
-  color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .post .body {
@@ -48,7 +56,7 @@ body {
 .post .footer {
   border-bottom: 1px solid lightgray;
   padding-left: 15px;
-  color: white;
+  color: var(--yellow);
 
 }
 .footer .buttons {
@@ -60,7 +68,7 @@ body {
   margin-bottom: 10px;
 }
 .likeBttn {
-  color: rgba(250, 250, 250, 0.8);
+  color: rgba(105, 105, 105, 0.966);
 }
 .unlikeBttn {
   color: var(--yellow);
@@ -125,24 +133,30 @@ span {
 }
 
 /* NAVBAR */
-
 .navbar {
-  width: 100%;
-  height: 70px;
-  background-color: var(--yellow);
+  width: 10vw;
+  height: 100vh;
+  background-color: var(--black);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  
+  padding-top: 50px;
 }
 .navbar .links {
-  flex: 50%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  margin: 10px;
   align-items: center;
 }
 .navbar .links a{
   transition: all 1s;
   font-weight: bold;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .navbar .links a:hover{
   transform: scale(1.1);
@@ -150,23 +164,23 @@ span {
 }
 
 .navbar .loggedInContainer {
-  flex: 50%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: center;
 }
 a {
-  margin-left: 20px;
+  margin-left: 0px;
   text-decoration: none;
   color: white;
+  
 }
 
 .navbar button {
   width: 100px;
-  height: 40px;
+  height: 30px;
   cursor: pointer;
-  margin-right: 10px;
   background-color: var(--gray);
   color: #ffcd00;
   box-shadow: 3px 4px 5px black;
@@ -179,11 +193,12 @@ a {
 }
 
 .navbar h1 {
+  font-size: 14px;
   text-align: right;
-  margin-right: 10px;
   color: white;
   font-weight: bold;
   text-transform: capitalize;
+  margin: 0;
 }
 
 /* INDIVIDUAL POST */

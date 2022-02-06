@@ -8,10 +8,15 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
 import ChangePassword from "./pages/ChangePassword";
-
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+//Imagens
+import logo1 from "./assets/logo.png"
+import logo2 from "./assets/nave.svg"
+import logo3 from "./assets/personagens.svg"
+
 
 function App() {
   const [authState, setAuthState] = useState({
@@ -50,34 +55,57 @@ function App() {
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <Router>
           <div className="navbar">
+            <img src={logo1} />
             <div className="links">
               {!authState.status ? (
                 <>
-                  <Link to="/login"> Login</Link>
-                  <Link to="/registration"> Registration</Link>
-                </>
+                <Link to="/login">
+                  <img src={logo3} />
+                  <p>Home Page</p>
+                </Link>
+                <Link to="/login">
+                  <img src={logo2} />
+                  <p>Create A Post</p>
+                </Link>
+              </>
+                
               ) : (
                 <>
-                  <Link to="/"> Home Page</Link>
-                  <Link to="/createpost"> Create A Post</Link>
+                  <Link to="/">
+                    <img src={logo3} />
+                    <p>Home Page</p>
+                  </Link>
+                  <Link to="/createpost">
+                    <img src={logo2} />
+                    <p>Create A Post</p>
+                  </Link>
                 </>
               )}
             </div>
             <div className="loggedInContainer">
-              <h1>{authState.username} </h1>
+
+            {!authState.status &&
+                <>
+                  <Link to="/login"><button>Sign in</button></Link>
+                  <Link to="/registration"><button>Sign up</button></Link>
+                </>}
+              
               {authState.status && <button onClick={logout}> Logout</button>}
+              <h1>{authState.username} </h1>
             </div>
           </div>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/createpost" exact component={CreatePost} />
-            <Route path="/post/:id" exact component={Post} />
-            <Route path="/registration" exact component={Registration} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/profile/:id" exact component={Profile} />
-            <Route path="/changepassword" exact component={ChangePassword} />
-            <Route path="*" exact component={PageNotFound} />
-          </Switch>
+          <div className="dir">
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/createpost" exact component={CreatePost} />
+              <Route path="/post/:id" exact component={Post} />
+              <Route path="/registration" exact component={Registration} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/profile/:id" exact component={Profile} />
+              <Route path="/changepassword" exact component={ChangePassword} />
+              <Route path="*" exact component={PageNotFound} />
+            </Switch>
+          </div>
         </Router>
       </AuthContext.Provider>
     </div>
