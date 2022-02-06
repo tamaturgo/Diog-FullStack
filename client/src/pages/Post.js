@@ -3,6 +3,10 @@ import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
 
+
+///Imagens
+import delicon from "../assets/outline_delete_black_24dp.png";
+
 function Post() {
   let { id } = useParams();
   const [postObject, setPostObject] = useState({});
@@ -112,26 +116,14 @@ function Post() {
         <div className="post" id="individual">
           <div
             className="title"
-            onClick={() => {
+          >
+            <p onClick={() => {
               if (authState.username === postObject.username) {
                 editPost("title");
               }
             }}
-          >
-            {postObject.title}
-          </div>
-          <div
-            className="body"
-            onClick={() => {
-              if (authState.username === postObject.username) {
-                editPost("body");
-              }
-            }}
-          >
-            {postObject.postText}
-          </div>
-          <div className="footer">
-            {postObject.username}
+            >{postObject.title}</p>
+
             {authState.username === postObject.username && (
               <button
                 onClick={() => {
@@ -139,9 +131,27 @@ function Post() {
                 }}
               >
                 {" "}
-                Delete Post
+                <img src={delicon} />
               </button>
             )}
+          </div>
+          <div
+            className="body"
+          >
+            <p
+              className="textPar"
+              onClick={() => {
+                if (authState.username === postObject.username) {
+                  editPost("body");
+                }
+              }}
+
+            >{postObject.postText}</p>
+            <p
+              className="author"
+
+            > @ {postObject.username}</p>
+
           </div>
         </div>
       </div>
@@ -156,23 +166,30 @@ function Post() {
               setNewComment(event.target.value);
             }}
           />
-          <button onClick={addComment}> Add Comment</button>
+          <button onClick={addComment}>send</button>
         </div>
         <div className="listOfComments">
           {comments.map((comment, key) => {
             return (
               <div key={key} className="comment">
-                {comment.commentBody}
-                <label> Username: {comment.username}</label>
-                {authState.username === comment.username && (
-                  <button
-                    onClick={() => {
-                      deleteComment(comment.id);
-                    }}
-                  >
-                    X
-                  </button>
-                )}
+
+                <div className="top">
+                  <p>
+                    {comment.commentBody}
+                  </p>
+                  {authState.username === comment.username && (
+                    <button
+                      onClick={() => {
+                        deleteComment(comment.id);
+                      }}
+                    >
+                      X
+                    </button>
+                  )}
+                </div>
+
+                <p> @{comment.username}</p>
+
               </div>
             );
           })}

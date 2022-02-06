@@ -31,6 +31,7 @@ function Login() {
       <label>Username:</label>
       <input
         type="text"
+        placeholder="Enter with your username"
         onChange={(event) => {
           setUsername(event.target.value);
         }}
@@ -38,6 +39,7 @@ function Login() {
       <label>Password:</label>
       <input
         type="password"
+        placeholder="Enter with your password"
         onChange={(event) => {
           setPassword(event.target.value);
         }}

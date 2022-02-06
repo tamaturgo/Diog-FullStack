@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 
 function Profile() {
   let { id } = useParams();
@@ -24,9 +25,10 @@ function Profile() {
     <div className="profilePageContainer">
       <div className="basicInfo">
         {" "}
-        <h1> Username: {username} </h1>
+        <h1> Username: <span>@{username}</span> <hr></hr></h1>
         {authState.username === username && (
           <button
+            className="changePass"
             onClick={() => {
               history.push("/changepassword");
             }}
@@ -39,8 +41,11 @@ function Profile() {
       <div className="listOfPosts">
         {listOfPosts.map((value, key) => {
           return (
-            <div key={key} className="post">
-              <div className="title"> {value.title} </div>
+            <div key={key} className="post homePost">
+              <div className="postheader">
+              <span className="usernick">@ {value.username}</span>
+              <span className="title"> - {value.title}</span>
+            </div>
               <div
                 className="body"
                 onClick={() => {
@@ -50,11 +55,14 @@ function Profile() {
                 {value.postText}
               </div>
               <div className="footer">
-                <div className="username">{value.username}</div>
-                <div className="buttons">
-                  <label> {value.Likes.length}</label>
-                </div>
+              <div className="buttons">
+                <ThumbUpAltIcon
+                  className="unlikeBttn"
+                />
+
+                <label> {value.Likes.length}</label>
               </div>
+            </div>
             </div>
           );
         })}

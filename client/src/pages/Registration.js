@@ -27,14 +27,14 @@ function Registration() {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="formContainer">
+        <Form className="loginContainer">
           <label>Username: </label>
           <ErrorMessage name="username" component="span" />
           <Field
             autocomplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="(Ex. John123...)"
+            placeholder="Create a new username"
           />
 
           <label>Password: </label>
@@ -44,7 +44,7 @@ function Registration() {
             type="password"
             id="inputCreatePost"
             name="password"
-            placeholder="Your Password..."
+            placeholder="Create a new password"
           />
 
           <button type="submit"> Register</button>
