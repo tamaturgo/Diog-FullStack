@@ -156,7 +156,7 @@ span {
 .navbar .links a{
   transition: all 1s;
   font-weight: bold;
-  margin-top: 10%;
+  margin-top: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
